@@ -12,9 +12,9 @@ function Spark() {
       fill="none"
       aria-hidden="true"
     >
-      <rect x="2" y="2" width="3.2" height="11" fill="#D8FF3E" />
-      <rect x="8" y="6" width="3.2" height="10" fill="#D8FF3E" transform="rotate(45 9.6 11)" />
-      <rect x="11" y="14" width="10" height="3.2" fill="#D8FF3E" />
+      <rect x="2" y="2" width="3.2" height="11" fill="#62D5A6" />
+      <rect x="8" y="6" width="3.2" height="10" fill="#62D5A6" transform="rotate(45 9.6 11)" />
+      <rect x="11" y="14" width="10" height="3.2" fill="#62D5A6" />
     </svg>
   );
 }
