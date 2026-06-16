@@ -1,26 +1,228 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@custom-variant dark (&:is(.dark *));
 
 @theme inline {
+  /* ---- brand palette (exact values from the source HTML) ---- */
+  --color-bg: var(--bg);
+  --color-ink: var(--ink);
+  --color-ink-dim: var(--ink-dim);
+  --color-ink-faint: var(--ink-faint);
+  --color-acc: var(--acc);
+  --color-line: var(--line);
+  --color-line-2: var(--line-2);
+
+  /* ---- fonts ---- */
+  --font-sans: var(--font-archivo), system-ui, sans-serif;
+  --font-display: var(--font-archivo), system-ui, sans-serif;
+  --font-serif: var(--font-instrument-serif), serif;
+  --font-mono: var(--font-ibm-plex-mono), monospace;
+
+  /* ---- shadcn token bridge ---- */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-sm: 0px;
+  --radius-md: 0px;
+  --radius-lg: 0px;
+  --radius-xl: 0px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+:root {
+  /* brand colors */
+  --bg: #0a0a0a;
+  --ink: #f5f3ee;
+  --ink-dim: #8c8a83;
+  --ink-faint: #55534d;
+  --acc: #d8ff3e; /* electric lime, used sparingly */
+  --line: #1e1e1c;
+  --line-2: #2c2c29;
+
+  /* sharp edges everywhere */
+  --radius: 0px;
+
+  /* shadcn tokens mapped to the brand (dark only) */
+  --background: var(--bg);
+  --foreground: var(--ink);
+  --card: var(--bg);
+  --card-foreground: var(--ink);
+  --popover: #121210;
+  --popover-foreground: var(--ink);
+  --primary: var(--acc);
+  --primary-foreground: #0a0a0a;
+  --secondary: var(--line-2);
+  --secondary-foreground: var(--ink);
+  --muted: var(--line);
+  --muted-foreground: var(--ink-dim);
+  --accent: var(--line-2);
+  --accent-foreground: var(--ink);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: var(--line-2);
+  --input: var(--line-2);
+  --ring: var(--acc);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-archivo), system-ui, sans-serif;
+    font-size: 17px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    font-feature-settings: "ss01";
+  }
+  ::selection {
+    background: var(--acc);
+    color: #0a0a0a;
+  }
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+  a:focus-visible,
+  button:focus-visible,
+  [tabindex]:focus-visible {
+    outline: 2px solid var(--acc);
+    outline-offset: 4px;
+  }
+
+  /* film grain overlay (rendered via <Grain /> on the marketing site only) */
+  .grain {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 999;
+    pointer-events: none;
+    opacity: 0.05;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 220 220' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    transform: translateZ(0);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer components {
+  /* page container */
+  .wrap {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 clamp(20px, 4vw, 64px);
+  }
+  .narrow {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 0 clamp(20px, 4vw, 64px);
+  }
+
+  /* animated link underline (was .ul) */
+  .link-underline {
+    position: relative;
+  }
+  .link-underline::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 100%;
+    height: 1px;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.4s cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+  .link-underline:hover::after,
+  .link-underline:focus-visible::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+  .link-underline.thick::after {
+    height: 2px;
+    bottom: -6px;
+  }
+}
+
+/* ---- pure-CSS motion primitives (match the HTML) ---- */
+.blip {
+  display: inline-block;
+  flex: none;
+  width: 7px;
+  height: 7px;
+  background: var(--acc);
+  animation: blip 1.8s steps(1) infinite;
+}
+@keyframes blip {
+  0%,
+  60% {
+    opacity: 1;
+  }
+  61%,
+  100% {
+    opacity: 0.25;
+  }
+}
+
+.bob {
+  display: inline-block;
+  animation: bob 1.8s ease-in-out infinite;
+}
+@keyframes bob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(5px);
+  }
+}
+
+.marquee-track {
+  display: inline-flex;
+  align-items: center;
+  animation: marquee 30s linear infinite;
+  will-change: transform;
+}
+.marquee-track.reverse {
+  animation-direction: reverse;
+}
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+  }
+  html {
+    scroll-behavior: auto;
+  }
 }

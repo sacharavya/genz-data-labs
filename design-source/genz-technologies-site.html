@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>genz technologies, organic growth agency</title>
+<meta name="description" content="genz technologies is an organic-growth agency. Toronto, Dubai, Kathmandu. We build traffic you earn, not traffic you rent. CRF Parfums: 80K+ followers, zero ad spend.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,300..900;1,300..900&family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0A0A0A;
+    --ink:#F5F3EE;
+    --ink-dim:#8C8A83;
+    --ink-faint:#55534D;
+    --acc:#D8FF3E;          /* electric lime, used sparingly */
+    --line:#1E1E1C;
+    --line-2:#2C2C29;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+  body{
+    background:var(--bg);color:var(--ink);
+    font-family:'Archivo',system-ui,sans-serif;
+    font-size:17px;line-height:1.5;
+    -webkit-font-smoothing:antialiased;overflow-x:hidden;
+    font-feature-settings:"ss01";
+  }
+  ::selection{background:var(--acc);color:#0A0A0A;}
+  .wrap{max-width:1440px;margin:0 auto;padding:0 clamp(20px,4vw,64px);}
+  .mono{font-family:'IBM Plex Mono',monospace;}
+  .serif{font-family:'Instrument Serif',serif;font-weight:400;font-style:italic;letter-spacing:0;}
+  a{color:inherit;text-decoration:none;}
+  a:focus-visible,button:focus-visible{outline:2px solid var(--acc);outline-offset:4px;}
+
+  /* grain */
+  body::after{
+    content:"";position:fixed;inset:0;z-index:999;pointer-events:none;opacity:.05;
+    background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 220 220' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    transform:translateZ(0);
+  }
+
+  /* ---------- header ---------- */
+  header{position:fixed;top:0;left:0;right:0;z-index:100;mix-blend-mode:difference;isolation:isolate;will-change:transform;}
+  .head-in{display:flex;justify-content:space-between;align-items:center;padding:24px 0;}
+  .wm{font-weight:800;font-size:20px;letter-spacing:-.03em;text-transform:lowercase;color:#fff;display:flex;align-items:center;gap:7px;}
+  .wm .spark{display:inline-block;width:14px;height:13px;}
+  .head-meta{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.04em;color:#fff;text-transform:uppercase;}
+  .head-meta a{position:relative;}
+  .head-nav{display:flex;gap:26px;}
+  @media (max-width:760px){.head-nav{display:none;}}
+
+  /* magnetic link underline */
+  .ul{position:relative;}
+  .ul::after{content:"";position:absolute;left:0;bottom:-3px;width:100%;height:1px;background:currentColor;transform:scaleX(0);transform-origin:right;transition:transform .4s cubic-bezier(.2,.7,.2,1);}
+  .ul:hover::after{transform:scaleX(1);transform-origin:left;}
+
+  /* ---------- hero ---------- */
+  .hero{min-height:100svh;display:flex;flex-direction:column;justify-content:space-between;padding-top:120px;padding-bottom:40px;}
+  .tag{
+    font-family:'IBM Plex Mono',monospace;font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;
+    color:var(--ink-dim);display:inline-flex;align-items:center;gap:11px;
+  }
+  .tag .blip{width:7px;height:7px;background:var(--acc);border-radius:0;animation:blip 1.8s steps(1) infinite;}
+  @keyframes blip{0%,60%{opacity:1}61%,100%{opacity:.25}}
+  .hero-head{
+    font-weight:680;font-size:clamp(48px,11.5vw,184px);line-height:.9;letter-spacing:-.045em;
+    text-transform:uppercase;margin-top:auto;
+  }
+  .hero-head .ln{display:block;overflow:hidden;}
+  .hero-head .ln > span{display:block;transform:translateY(105%);}
+  .hero-head .lc{text-transform:none;}
+  .hero-head .ink-acc{color:var(--acc);}
+  .hero-foot{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap;margin-top:54px;}
+  .hero-foot p{max-width:40ch;font-size:clamp(16px,1.5vw,20px);color:var(--ink-dim);}
+  .hero-foot p b{color:var(--ink);font-weight:600;}
+  .scroll-cue{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint);display:flex;align-items:center;gap:10px;}
+  .scroll-cue .ar{display:inline-block;animation:bob 1.8s ease-in-out infinite;}
+  @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(5px)}}
+
+  /* ---------- marquee ---------- */
+  .marquee-sec{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:26px 0;overflow:hidden;white-space:nowrap;}
+  .mq{display:inline-flex;align-items:center;animation:mq 30s linear infinite;will-change:transform;}
+  .mq:nth-child(2){animation-direction:reverse;}
+  .mq span{font-weight:760;font-size:clamp(30px,4.6vw,68px);letter-spacing:-.03em;text-transform:uppercase;padding:0 .35em;display:inline-flex;align-items:center;gap:.5em;}
+  .mq .dim{color:var(--ink-faint);-webkit-text-stroke:1px var(--ink-faint);color:transparent;}
+  .mq .star{color:var(--acc);font-size:.5em;}
+  @keyframes mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+  /* section scaffolding */
+  section{position:relative;}
+  .idx{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);}
+  .pad{padding-top:clamp(90px,13vw,200px);padding-bottom:clamp(90px,13vw,200px);}
+
+  /* reveal */
+  .rv{clip-path:inset(0 0 100% 0);transition:clip-path 1s cubic-bezier(.16,1,.3,1);will-change:clip-path;}
+  .rv.on{clip-path:inset(0 0 -10% 0);}
+  .fade{opacity:0;transform:translateY(20px);transition:opacity .8s ease,transform .8s ease;will-change:opacity,transform;}
+  .fade.on{opacity:1;transform:none;}
+
+  /* ---------- thesis ---------- */
+  .thesis-grid{display:grid;grid-template-columns:1fr 1.5fr;gap:clamp(30px,6vw,100px);align-items:start;}
+  .thesis-grid .idx-col{position:sticky;top:120px;}
+  .thesis-lead{
+    font-weight:600;font-size:clamp(28px,3.6vw,52px);line-height:1.08;letter-spacing:-.03em;
+  }
+  .thesis-lead .serif{font-size:1.08em;color:var(--acc);}
+  .thesis-body{margin-top:clamp(30px,4vw,60px);max-width:60ch;}
+  .thesis-body p{font-size:clamp(17px,1.5vw,21px);line-height:1.6;color:var(--ink-dim);margin-bottom:24px;}
+  .thesis-body p b{color:var(--ink);font-weight:600;}
+  .pull{
+    font-family:'Instrument Serif',serif;font-style:italic;font-size:clamp(26px,3.2vw,42px);
+    line-height:1.18;color:var(--ink);border-left:2px solid var(--acc);padding-left:28px;margin:14px 0 28px;
+  }
+
+  /* ---------- cases (sticky stack) ---------- */
+  .cases-head{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:clamp(40px,6vw,90px);}
+  .cases-head h2{font-weight:720;font-size:clamp(38px,7vw,108px);letter-spacing:-.04em;line-height:.92;text-transform:uppercase;}
+  .cases-head h2 .serif{text-transform:none;color:var(--acc);}
+  .case{
+    position:sticky;background:var(--bg);border-top:1px solid var(--line-2);
+    padding-top:clamp(34px,4vw,60px);min-height:88vh;
+  }
+  .case-row{display:grid;grid-template-columns:88px 1fr;gap:clamp(20px,4vw,60px);}
+  .case-no{font-family:'IBM Plex Mono',monospace;font-size:14px;color:var(--acc);padding-top:8px;}
+  .case-main{display:grid;grid-template-columns:1.3fr 1fr;gap:clamp(24px,4vw,64px);}
+  .case-client{font-weight:740;font-size:clamp(34px,5.6vw,92px);letter-spacing:-.035em;line-height:.92;text-transform:uppercase;}
+  .case-disc{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-dim);margin-top:20px;}
+  .case-problem{margin-top:30px;font-size:clamp(17px,1.6vw,21px);line-height:1.55;color:var(--ink-dim);max-width:50ch;}
+  .case-problem b{color:var(--ink);font-weight:600;}
+  .case-result{margin-top:26px;font-family:'Instrument Serif',serif;font-style:italic;font-size:clamp(22px,2.6vw,34px);line-height:1.2;color:var(--ink);max-width:32ch;}
+  .case-metric{display:flex;flex-direction:column;justify-content:flex-end;gap:8px;border-left:1px solid var(--line-2);padding-left:clamp(20px,3vw,44px);}
+  .metric-n{font-weight:780;font-size:clamp(56px,9vw,150px);letter-spacing:-.05em;line-height:.82;font-variant-numeric:tabular-nums;}
+  .metric-n .u{color:var(--acc);}
+  .metric-l{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-dim);max-width:24ch;}
+  .case-sub{display:flex;gap:26px;margin-top:24px;flex-wrap:wrap;}
+  .case-sub .cs{font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--ink-dim);}
+  .case-sub .cs b{color:var(--acc);font-weight:500;}
+  .case-link{margin-top:24px;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--ink-dim);text-transform:uppercase;letter-spacing:.04em;}
+
+  /* ---------- services ---------- */
+  .svc-list{border-top:1px solid var(--line-2);}
+  .svc{
+    display:grid;grid-template-columns:88px 1fr auto;gap:clamp(16px,3vw,40px);align-items:center;
+    border-bottom:1px solid var(--line-2);padding:clamp(22px,2.6vw,40px) 0;cursor:default;position:relative;
+    transition:padding-left .35s cubic-bezier(.16,1,.3,1);
+  }
+  .svc:hover{padding-left:clamp(12px,2vw,32px);}
+  .svc::before{content:"";position:absolute;left:0;top:0;height:100%;width:0;background:var(--acc);opacity:.06;transition:width .4s cubic-bezier(.16,1,.3,1);z-index:0;}
+  .svc:hover::before{width:100%;}
+  .svc > *{position:relative;z-index:1;}
+  .svc-no{font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--ink-faint);}
+  .svc-name{font-weight:680;font-size:clamp(26px,4.4vw,62px);letter-spacing:-.03em;text-transform:uppercase;line-height:1;}
+  .svc-name .serif{text-transform:none;}
+  .svc:hover .svc-name{color:var(--acc);}
+  .svc-detail{font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--ink-dim);text-align:right;max-width:30ch;opacity:.5;transform:translateX(10px);transition:opacity .4s ease,transform .4s ease;}
+  .svc:hover .svc-detail{opacity:1;transform:none;}
+  @media (max-width:760px){
+    .svc{grid-template-columns:44px 1fr;}
+    .svc-detail{grid-column:2;text-align:left;max-width:none;opacity:.7;}
+  }
+
+  /* ---------- stats band ---------- */
+  .stats{border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);}
+  .stat{padding:clamp(40px,5vw,80px) clamp(18px,2.4vw,40px);border-right:1px solid var(--line);}
+  .stat:last-child{border-right:none;}
+  .stat-n{font-weight:780;font-size:clamp(48px,6.4vw,104px);letter-spacing:-.045em;line-height:.86;font-variant-numeric:tabular-nums;}
+  .stat-n .u{color:var(--acc);}
+  .stat-l{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-dim);margin-top:18px;max-width:22ch;line-height:1.6;}
+  @media (max-width:900px){.stats-grid{grid-template-columns:repeat(2,1fr);}.stat:nth-child(2){border-right:none;}.stat:nth-child(1),.stat:nth-child(2){border-bottom:1px solid var(--line);}}
+  @media (max-width:520px){.stats-grid{grid-template-columns:1fr;}.stat{border-right:none;border-bottom:1px solid var(--line);}.stat:last-child{border-bottom:none;}}
+
+  /* ---------- contact ---------- */
+  .contact{padding-top:clamp(90px,13vw,200px);padding-bottom:60px;}
+  .contact .idx{margin-bottom:40px;}
+  .contact-head{font-weight:720;font-size:clamp(48px,12vw,200px);letter-spacing:-.05em;line-height:.86;text-transform:uppercase;}
+  .contact-head .serif{text-transform:none;color:var(--acc);}
+  .contact-mail{display:inline-block;margin-top:clamp(40px,6vw,80px);font-weight:600;font-size:clamp(22px,4vw,56px);letter-spacing:-.025em;}
+  .contact-mail .ul::after{height:2px;bottom:-6px;}
+  .contact-foot{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap;margin-top:clamp(60px,9vw,130px);padding-top:30px;border-top:1px solid var(--line);}
+  .cities{display:flex;gap:clamp(20px,3vw,54px);flex-wrap:wrap;}
+  .cities span{font-weight:680;font-size:clamp(18px,2vw,28px);letter-spacing:-.02em;text-transform:uppercase;}
+  .cities span .t{font-family:'IBM Plex Mono',monospace;font-size:.42em;color:var(--ink-faint);vertical-align:super;margin-left:4px;letter-spacing:0;}
+  .colophon{font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.05em;color:var(--ink-faint);text-transform:uppercase;text-align:right;line-height:1.9;}
+
+  /* magnetic wrapper */
+  .mag{display:inline-block;will-change:transform;}
+
+  @media (prefers-reduced-motion:reduce){
+    *{animation:none!important;}
+    .rv{clip-path:none;}
+    .fade{opacity:1;transform:none;}
+    .hero-head .ln > span{transform:none;}
+    html{scroll-behavior:auto;}
+  }
+
+  @media (max-width:860px){
+    .thesis-grid{grid-template-columns:1fr;}
+    .thesis-grid .idx-col{position:static;}
+    .case-main{grid-template-columns:1fr;}
+    .case-metric{border-left:none;border-top:1px solid var(--line-2);padding-left:0;padding-top:24px;margin-top:24px;}
+    .case-row{grid-template-columns:1fr;gap:18px;}
+    .case-no{padding-top:0;}
+    .case{min-height:0;position:static;padding-bottom:50px;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap head-in">
+    <a class="wm" href="#top">genz<svg class="spark" viewBox="0 0 22 20" fill="none" aria-hidden="true"><rect x="2" y="2" width="3.2" height="11" rx="0" fill="#D8FF3E"/><rect x="8" y="6" width="3.2" height="10" rx="0" fill="#D8FF3E" transform="rotate(45 9.6 11)"/><rect x="11" y="14" width="10" height="3.2" rx="0" fill="#D8FF3E"/></svg></a>
+    <div class="head-nav head-meta">
+      <a href="#work" class="ul">Work</a>
+      <a href="#services" class="ul">Services</a>
+      <a href="#contact" class="ul">Contact</a>
+    </div>
+    <div class="head-meta">TOR / DXB / KTM</div>
+  </div>
+</header>
+
+<!-- 1. HERO -->
+<section class="hero" id="top">
+  <div class="wrap">
+    <span class="tag fade"><span class="blip"></span>Taking 2 clients for Q3 2026</span>
+  </div>
+  <div class="wrap">
+    <h1 class="hero-head">
+      <span class="ln"><span>We grow brands</span></span>
+      <span class="ln"><span class="lc serif ink-acc">organically</span></span>
+      <span class="ln"><span>not on ad spend.</span></span>
+    </h1>
+    <div class="hero-foot">
+      <p class="fade">An organic-growth agency for businesses that want traffic they <b>own</b>, not traffic they rent. Search, content, and brand that compound long after the invoice clears.</p>
+      <span class="scroll-cue fade">Scroll <span class="ar">&darr;</span></span>
+    </div>
+  </div>
+</section>
+
+<!-- 2. MARQUEE -->
+<div class="marquee-sec" aria-hidden="true">
+  <div class="mq">
+    <span>RP Nails <span class="star">✦</span></span><span class="dim">Organic</span><span>Big Bang Immigration <span class="star">✦</span></span><span class="dim">Content</span><span>CRF Parfums <span class="star">✦</span></span><span class="dim">Brand</span>
+    <span>RP Nails <span class="star">✦</span></span><span class="dim">Organic</span><span>Big Bang Immigration <span class="star">✦</span></span><span class="dim">Content</span><span>CRF Parfums <span class="star">✦</span></span><span class="dim">Brand</span>
+  </div>
+</div>
+
+<!-- 3. THESIS -->
+<section class="pad" id="approach">
+  <div class="wrap thesis-grid">
+    <div class="idx-col">
+      <span class="idx fade">(01) / Approach</span>
+    </div>
+    <div>
+      <p class="thesis-lead rv">Paid ads are a tap somebody else controls. Turn off the money and the traffic dies the same day. We build the <span class="serif">other</span> kind of growth.</p>
+      <div class="thesis-body">
+        <p class="fade">Most agencies bill you, route the budget to Google and Meta, keep a cut, and mail back a dashboard with "impressions" on it. It works until the second you stop paying. We think that's renting your own customers.</p>
+        <p class="pull fade">Rankings, audiences, reviews, and content are assets. Impressions are a receipt.</p>
+        <p class="fade">We come from data, not advertising. Every engagement opens with a scored audit, ships work in priority order, and reports plain numbers every month. <b>It is slower than ads. It is also yours forever.</b> A page that ranks keeps ranking while you sleep. An audience keeps buying. That is the entire thesis.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. CASES -->
+<section class="pad" id="work" style="padding-bottom:0;">
+  <div class="wrap">
+    <div class="cases-head">
+      <h2>Selected <span class="serif">work</span></h2>
+      <span class="idx fade">(02) / Three clients, zero ad budgets</span>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <article class="case">
+      <div class="case-row">
+        <div class="case-no">CASE 01</div>
+        <div class="case-main">
+          <div>
+            <div class="case-client">CRF<br>Parfums</div>
+            <div class="case-disc">Fragrance &amp; lifestyle · Dubai · Content + Brand</div>
+            <p class="case-problem">A fragrance brand stalled on the algorithm. The obvious move was to buy reach. <b>Instead we engineered content against retention data:</b> hooks, posting windows tuned to the Gulf and South Asia, formats killed or doubled weekly on the numbers.</p>
+            <p class="case-result">An audience that doesn't just watch. It buys. The page became the launch platform for a five-scent line.</p>
+          </div>
+          <div class="case-metric">
+            <div class="metric-n"><span class="cnt" data-to="80" data-suffix="">0</span><span class="u">K+</span></div>
+            <div class="metric-l">Followers grown, zero paid spend</div>
+            <div class="case-sub">
+              <span class="cs">Ad spend <b>$0</b></span>
+              <span class="cs">Now <b>83K+</b></span>
+            </div>
+            <div class="case-link">@crazyfragrance_ → crfparfums.com</div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="case">
+      <div class="case-row">
+        <div class="case-no">CASE 02</div>
+        <div class="case-main">
+          <div>
+            <a href="case-bigbang.html" class="ul" style="display:inline-block;"><div class="case-client">Big Bang<br>Immigration</div></a>
+            <div class="case-disc">Regulated services · Toronto · Custom software</div>
+            <p class="case-problem">A licensed immigration firm ran on paper, spreadsheets, and memory. We designed and built a custom case-management platform from zero: <b>digital intake, case tracking, a real booking calendar, auto-generated Teams meetings.</b></p>
+            <p class="case-result">A practice that ran on paper now runs on one platform. Staff use it every single day.</p>
+          </div>
+          <div class="case-metric">
+            <div class="metric-n"><span class="cnt" data-to="100" data-suffix="">0</span><span class="u">%</span></div>
+            <div class="metric-l">Canadian data residency, compliant by design</div>
+            <div class="case-sub">
+              <span class="cs">Manual → <b>digital</b></span>
+              <span class="cs">In daily <b>use</b></span>
+            </div>
+            <div class="case-link"><a href="case-bigbang.html" class="ul">Read the case study &rarr;</a></div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="case">
+      <div class="case-row">
+        <div class="case-no">CASE 03</div>
+        <div class="case-main">
+          <div>
+            <a href="case-rpnails.html" class="ul" style="display:inline-block;"><div class="case-client">RP<br>Nails</div></a>
+            <div class="case-disc">Beauty · Toronto · Organic + Local SEO</div>
+            <p class="case-problem">Great work, invisible online. Most agencies would have sold ads on day one. <b>We opened with a line-by-line audit</b> of the Google profile and website, then built a five-phase blueprint on channels the salon owns outright.</p>
+            <p class="case-result">Local search that compounds. A retainer measured against a real baseline, not a vanity dashboard.</p>
+          </div>
+          <div class="case-metric">
+            <div class="metric-n"><span class="cnt" data-to="0" data-suffix="">0</span></div>
+            <div class="metric-l">Dollars of ad spend required</div>
+            <div class="case-sub">
+              <span class="cs">Reviews <b>10 to 20/mo</b></span>
+              <span class="cs"><b>5-phase</b> plan</span>
+            </div>
+            <div class="case-link"><a href="case-rpnails.html" class="ul">Read the case study &rarr;</a></div>
+          </div>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- 5. SERVICES -->
+<section class="pad" id="services">
+  <div class="wrap">
+    <div class="cases-head">
+      <h2>What we <span class="serif">do</span></h2>
+      <span class="idx fade">(03) / End to end, under one roof</span>
+    </div>
+    <div class="svc-list">
+      <div class="svc"><span class="svc-no">01</span><span class="svc-name">SEO &amp; Local Search</span><span class="svc-detail">GBP optimization, technical SEO, local content from scored audits. Calls and bookings, not vanity rankings.</span></div>
+      <div class="svc"><span class="svc-no">02</span><span class="svc-name">Social &amp; <span class="serif">Content</span></span><span class="svc-detail">Every platform. We find where your audience actually is and build there. The system behind 80K+ organic followers.</span></div>
+      <div class="svc"><span class="svc-no">03</span><span class="svc-name">Video &amp; Creative</span><span class="svc-detail">Short-form video and brand assets, produced in-house and iterated against real performance data.</span></div>
+      <div class="svc"><span class="svc-no">04</span><span class="svc-name">Web &amp; <span class="serif">Software</span></span><span class="svc-detail">Sites built to rank and convert. Custom CRMs, booking systems, and platforms when templates stop fitting.</span></div>
+      <div class="svc"><span class="svc-no">05</span><span class="svc-name">Analytics</span><span class="svc-detail">A scored baseline on day one, then plain-language reporting every month. If it can't be measured, it didn't happen.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 6. STATS -->
+<div class="stats">
+  <div class="wrap" style="padding:0;">
+    <div class="stats-grid">
+      <div class="stat" style="padding-left:clamp(20px,4vw,64px);">
+        <div class="stat-n"><span class="cnt" data-to="80">0</span><span class="u">K+</span></div>
+        <div class="stat-l">Followers grown for one brand, zero ad spend</div>
+      </div>
+      <div class="stat">
+        <div class="stat-n">$<span class="cnt" data-to="0">0</span></div>
+        <div class="stat-l">Ad budget across every client engagement</div>
+      </div>
+      <div class="stat">
+        <div class="stat-n"><span class="cnt" data-to="3">0</span></div>
+        <div class="stat-l">Cities: Toronto, Dubai, Kathmandu</div>
+      </div>
+      <div class="stat">
+        <div class="stat-n"><span class="cnt" data-to="100">0</span><span class="u">%</span></div>
+        <div class="stat-l">Organic-first, measured every month</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 7. CONTACT -->
+<section class="contact" id="contact">
+  <div class="wrap">
+    <span class="idx">(04) / Let's build something you own</span>
+    <h2 class="contact-head">Start with a<br><span class="serif">free</span> audit.</h2>
+    <a class="contact-mail" href="mailto:info@genzdatasolutions.com"><span class="mag"><span class="ul">info@genzdatasolutions.com</span></span></a>
+    <div class="contact-foot">
+      <div class="cities">
+        <span>Toronto<span class="t">CA</span></span>
+        <span>Dubai<span class="t">AE</span></span>
+        <span>Kathmandu<span class="t">NP</span></span>
+      </div>
+      <div class="colophon">
+        genz technologies © 2026<br>
+        Organic by design<br>
+        Built by hand · ranked by Google
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---- reveal: clip + fade ---- */
+  const io = new IntersectionObserver((es)=>{
+    es.forEach(e=>{
+      if(e.isIntersecting){
+        e.target.classList.add('on');
+        io.unobserve(e.target);
+        // release the GPU layer once the transition is done
+        e.target.addEventListener('transitionend', ()=>{ e.target.style.willChange='auto'; }, {once:true});
+      }
+    });
+  },{threshold:.18});
+  document.querySelectorAll('.rv,.fade').forEach(el=>io.observe(el));
+
+  /* ---- hero line mask reveal ---- */
+  const heroLines = document.querySelectorAll('.hero-head .ln > span');
+  if(reduced){ heroLines.forEach(s=>s.style.transform='none'); }
+  else {
+    heroLines.forEach((s,i)=>{
+      s.style.transition = 'transform 1.05s cubic-bezier(.16,1,.3,1)';
+      s.style.transitionDelay = (180 + i*120)+'ms';
+    });
+    requestAnimationFrame(()=>requestAnimationFrame(()=>{
+      heroLines.forEach(s=>s.style.transform='translateY(0)');
+    }));
+  }
+
+  /* ---- count ups ---- */
+  const fmt = n => n.toLocaleString('en-US');
+  const runCnt = (el)=>{
+    const to = parseInt(el.dataset.to,10);
+    const suf = el.dataset.suffix || '';
+    if(reduced || to===0){ el.textContent = fmt(to)+suf; return; }
+    const dur = 1700; const start = performance.now();
+    const tick = (now)=>{
+      const p = Math.min((now-start)/dur,1);
+      const eased = 1-Math.pow(1-p,4);
+      el.textContent = fmt(Math.round(to*eased))+suf;
+      if(p<1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  };
+  const cio = new IntersectionObserver((es)=>{
+    es.forEach(e=>{ if(e.isIntersecting){ runCnt(e.target); cio.unobserve(e.target);} });
+  },{threshold:.6});
+  document.querySelectorAll('.cnt').forEach(c=>cio.observe(c));
+
+  /* ---- magnetic buttons/links ---- */
+  if(!reduced && matchMedia('(pointer:fine)').matches){
+    document.querySelectorAll('.mag').forEach(el=>{
+      const strength = 22; let raf = null, tx = 0, ty = 0;
+      const apply = ()=>{ el.style.transform = `translate3d(${tx}px, ${ty}px, 0)`; raf = null; };
+      el.addEventListener('mousemove', e=>{
+        const r = el.getBoundingClientRect();
+        tx = ((e.clientX - r.left - r.width/2) / (r.width/2)) * strength;
+        ty = ((e.clientY - r.top - r.height/2) / (r.height/2)) * strength;
+        if(!raf) raf = requestAnimationFrame(apply);
+      });
+      el.addEventListener('mouseleave', ()=>{
+        if(raf){ cancelAnimationFrame(raf); raf = null; }
+        el.style.transition='transform .5s cubic-bezier(.16,1,.3,1)';
+        el.style.transform='translate3d(0,0,0)';
+        setTimeout(()=>el.style.transition='',500);
+      });
+      el.addEventListener('mouseenter', ()=>{ el.style.transition=''; });
+    });
+  }
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Big Bang Immigration, case study · genz technologies</title>
+<meta name="description" content="How genz technologies took a licensed immigration firm from paper, spreadsheets, and memory to a custom case-management platform used by staff every day. PIPEDA and CICC compliant by design.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,300..900;1,300..900&family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0A0A0A;--ink:#F5F3EE;--ink-dim:#8C8A83;--ink-faint:#55534D;
+    --acc:#D8FF3E;--line:#1E1E1C;--line-2:#2C2C29;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+  body{background:var(--bg);color:var(--ink);font-family:'Archivo',system-ui,sans-serif;font-size:17px;line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden;font-feature-settings:"ss01";}
+  ::selection{background:var(--acc);color:#0A0A0A;}
+  .wrap{max-width:1440px;margin:0 auto;padding:0 clamp(20px,4vw,64px);}
+  .narrow{max-width:980px;margin:0 auto;padding:0 clamp(20px,4vw,64px);}
+  .mono{font-family:'IBM Plex Mono',monospace;}
+  .serif{font-family:'Instrument Serif',serif;font-weight:400;font-style:italic;letter-spacing:0;}
+  a{color:inherit;text-decoration:none;}
+  a:focus-visible,button:focus-visible{outline:2px solid var(--acc);outline-offset:4px;}
+  body::after{content:"";position:fixed;inset:0;z-index:999;pointer-events:none;opacity:.05;transform:translateZ(0);background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 220 220' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
+
+  /* header */
+  header{position:fixed;top:0;left:0;right:0;z-index:100;mix-blend-mode:difference;isolation:isolate;}
+  .head-in{display:flex;justify-content:space-between;align-items:center;padding:24px 0;}
+  .wm{font-weight:800;font-size:20px;letter-spacing:-.03em;text-transform:lowercase;color:#fff;display:flex;align-items:center;gap:7px;}
+  .wm .spark{width:14px;height:13px;}
+  .head-meta{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.04em;color:#fff;text-transform:uppercase;}
+  .ul{position:relative;}
+  .ul::after{content:"";position:absolute;left:0;bottom:-3px;width:100%;height:1px;background:currentColor;transform:scaleX(0);transform-origin:right;transition:transform .4s cubic-bezier(.2,.7,.2,1);}
+  .ul:hover::after{transform:scaleX(1);transform-origin:left;}
+
+  /* back bar */
+  .backbar{padding-top:104px;}
+  .back{font-family:'IBM Plex Mono',monospace;font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-dim);display:inline-flex;align-items:center;gap:10px;}
+  .back:hover{color:var(--acc);}
+
+  /* hero */
+  .cs-hero{padding-top:clamp(40px,6vw,80px);padding-bottom:clamp(50px,7vw,90px);border-bottom:1px solid var(--line);}
+  .eyebrow{font-family:'IBM Plex Mono',monospace;font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--acc);margin-bottom:30px;}
+  .cs-title{font-weight:720;font-size:clamp(46px,9vw,150px);letter-spacing:-.045em;line-height:.9;text-transform:uppercase;}
+  .cs-title .serif{text-transform:none;color:var(--acc);}
+  .cs-sub{margin-top:34px;font-size:clamp(18px,2vw,26px);line-height:1.4;color:var(--ink-dim);max-width:52ch;}
+  .cs-sub b{color:var(--ink);font-weight:600;}
+  .meta-row{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;margin-top:clamp(40px,5vw,70px);border:1px solid var(--line-2);background:var(--line-2);}
+  .meta{background:var(--bg);padding:22px 24px;}
+  .meta .k{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:8px;}
+  .meta .v{font-weight:600;font-size:15.5px;color:var(--ink);line-height:1.35;}
+  @media (max-width:860px){.meta-row{grid-template-columns:repeat(2,1fr);}}
+  @media (max-width:480px){.meta-row{grid-template-columns:1fr;}}
+
+  /* big stat band */
+  .band{border-bottom:1px solid var(--line);}
+  .band-grid{display:grid;grid-template-columns:repeat(3,1fr);}
+  .bstat{padding:clamp(44px,5.5vw,86px) clamp(20px,2.4vw,44px);border-right:1px solid var(--line);}
+  .bstat:last-child{border-right:none;}
+  .bstat .n{font-weight:780;font-size:clamp(50px,7vw,120px);letter-spacing:-.05em;line-height:.84;font-variant-numeric:tabular-nums;}
+  .bstat .n .u{color:var(--acc);}
+  .bstat .l{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-dim);margin-top:18px;max-width:26ch;line-height:1.6;}
+  .bstat .note{font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--ink-faint);margin-top:10px;letter-spacing:.04em;}
+  @media (max-width:860px){.band-grid{grid-template-columns:1fr;}.bstat{border-right:none;border-bottom:1px solid var(--line);}.bstat:last-child{border-bottom:none;}}
+
+  /* content sections */
+  .sec{padding-top:clamp(70px,10vw,150px);padding-bottom:clamp(70px,10vw,150px);border-bottom:1px solid var(--line);}
+  .sec-tag{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:30px;}
+  .h-block{font-weight:680;font-size:clamp(30px,4.4vw,62px);letter-spacing:-.035em;line-height:1.02;text-transform:uppercase;margin-bottom:clamp(30px,4vw,56px);}
+  .h-block .serif{text-transform:none;color:var(--acc);}
+  .prose{max-width:64ch;}
+  .prose p{font-size:clamp(17px,1.55vw,21px);line-height:1.62;color:var(--ink-dim);margin-bottom:26px;}
+  .prose p b{color:var(--ink);font-weight:600;}
+  .pull{font-family:'Instrument Serif',serif;font-style:italic;font-size:clamp(26px,3.4vw,46px);line-height:1.16;color:var(--ink);border-left:2px solid var(--acc);padding-left:30px;margin:10px 0 30px;max-width:30ch;}
+
+  /* problem/approach two-col */
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,80px);}
+  @media (max-width:860px){.two{grid-template-columns:1fr;gap:40px;}}
+  .col-label{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--acc);margin-bottom:20px;padding-bottom:14px;border-bottom:1px solid var(--line-2);}
+  .col p{font-size:16.5px;line-height:1.6;color:var(--ink-dim);margin-bottom:18px;}
+  .col p b{color:var(--ink);font-weight:600;}
+
+  /* build list */
+  .build{border-top:1px solid var(--line-2);margin-top:10px;}
+  .build-row{display:grid;grid-template-columns:64px 1fr;gap:clamp(16px,3vw,40px);padding:clamp(22px,2.6vw,36px) 0;border-bottom:1px solid var(--line-2);}
+  .build-row .bn{font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--acc);}
+  .build-row h4{font-weight:680;font-size:clamp(20px,2.6vw,30px);letter-spacing:-.02em;margin-bottom:10px;}
+  .build-row p{font-size:15.5px;color:var(--ink-dim);line-height:1.55;max-width:62ch;}
+
+  /* image slot */
+  .shot{border:1px solid var(--line-2);background:linear-gradient(135deg,#161616,#0E0E0E);aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;margin-top:clamp(30px,4vw,56px);position:relative;overflow:hidden;}
+  .shot img{width:100%;height:100%;object-fit:cover;display:block;}
+  .shot .ph{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint);text-align:center;line-height:1.8;padding:20px;}
+  .shot .ph b{color:var(--ink-dim);font-weight:500;}
+
+  /* stack / tech chips */
+  .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px;}
+  .chips span{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-dim);border:1px solid var(--line-2);padding:9px 15px;}
+
+  /* quote slot */
+  .quote-sec{padding-top:clamp(70px,10vw,150px);padding-bottom:clamp(70px,10vw,150px);border-bottom:1px solid var(--line);text-align:center;}
+  .big-quote{font-family:'Instrument Serif',serif;font-style:italic;font-size:clamp(28px,4.6vw,68px);line-height:1.12;letter-spacing:-.01em;max-width:20ch;margin:0 auto;}
+  .big-quote .acc{color:var(--acc);}
+  .q-attr{font-family:'IBM Plex Mono',monospace;font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-dim);margin-top:36px;}
+  .q-note{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--ink-faint);margin-top:14px;letter-spacing:.04em;}
+
+  /* next / cta */
+  .cta{padding-top:clamp(80px,11vw,170px);padding-bottom:80px;}
+  .cta .eyebrow{margin-bottom:36px;}
+  .cta-head{font-weight:720;font-size:clamp(40px,9vw,150px);letter-spacing:-.05em;line-height:.86;text-transform:uppercase;}
+  .cta-head .serif{text-transform:none;color:var(--acc);}
+  .cta-mail{display:inline-block;margin-top:clamp(36px,5vw,66px);font-weight:600;font-size:clamp(20px,3.4vw,46px);letter-spacing:-.025em;}
+  .cta-mail .ul::after{height:2px;bottom:-6px;}
+  .cta-foot{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap;margin-top:clamp(60px,9vw,120px);padding-top:30px;border-top:1px solid var(--line);}
+  .cities{display:flex;gap:clamp(18px,3vw,48px);flex-wrap:wrap;}
+  .cities span{font-weight:680;font-size:clamp(17px,1.9vw,26px);letter-spacing:-.02em;text-transform:uppercase;}
+  .cities span .t{font-family:'IBM Plex Mono',monospace;font-size:.42em;color:var(--ink-faint);vertical-align:super;margin-left:4px;letter-spacing:0;}
+  .colophon{font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.05em;color:var(--ink-faint);text-transform:uppercase;text-align:right;line-height:1.9;}
+  .mag{display:inline-block;will-change:transform;}
+
+  .rv{clip-path:inset(0 0 100% 0);transition:clip-path 1s cubic-bezier(.16,1,.3,1);will-change:clip-path;}
+  .rv.on{clip-path:inset(0 0 -10% 0);}
+  .fade{opacity:0;transform:translateY(20px);transition:opacity .8s ease,transform .8s ease;will-change:opacity,transform;}
+  .fade.on{opacity:1;transform:none;}
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;}.rv{clip-path:none;}.fade{opacity:1;transform:none;}html{scroll-behavior:auto;}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap head-in">
+    <a class="wm" href="index.html">genz<svg class="spark" viewBox="0 0 22 20" fill="none" aria-hidden="true"><rect x="2" y="2" width="3.2" height="11" fill="#D8FF3E"/><rect x="8" y="6" width="3.2" height="10" fill="#D8FF3E" transform="rotate(45 9.6 11)"/><rect x="11" y="14" width="10" height="3.2" fill="#D8FF3E"/></svg></a>
+    <div class="head-meta"><a href="index.html#work" class="ul">All work</a></div>
+    <div class="head-meta">TOR / DXB / KTM</div>
+  </div>
+</header>
+
+<div class="wrap backbar">
+  <a class="back" href="index.html#work">&larr; Back to work</a>
+</div>
+
+<!-- HERO -->
+<section class="cs-hero">
+  <div class="wrap">
+    <p class="eyebrow fade">Case 02 / Regulated services / Toronto</p>
+    <h1 class="cs-title rv">Big Bang<br>Immigration</h1>
+    <p class="cs-sub fade">How a licensed immigration practice moved from paper, spreadsheets, and memory to a <b>custom case-management platform its staff use every single day</b>, built compliant from the first line.</p>
+    <div class="meta-row fade">
+      <div class="meta"><div class="k">Client</div><div class="v">Big Bang Immigration Consulting, an RCIC-licensed firm</div></div>
+      <div class="meta"><div class="k">Scope</div><div class="v">Product design + full-stack build + security</div></div>
+      <div class="meta"><div class="k">Sector</div><div class="v">Immigration services, regulated</div></div>
+      <div class="meta"><div class="k">Status</div><div class="v">Live in production, in daily use</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- STAT BAND -->
+<div class="band">
+  <div class="wrap" style="padding:0;">
+    <div class="band-grid">
+      <div class="bstat" style="padding-left:clamp(20px,4vw,64px);">
+        <div class="n">0<span class="u">→1</span></div>
+        <div class="l">Custom platform, designed and shipped from zero</div>
+      </div>
+      <div class="bstat">
+        <div class="n"><span class="cnt" data-to="100">0</span><span class="u">%</span></div>
+        <div class="l">Client data held in Canada, compliant by design</div>
+      </div>
+      <div class="bstat">
+        <div class="n">Daily</div>
+        <div class="l">In active use by the whole practice</div>
+        <div class="note">// Replace with a hard number after firm sign-off: e.g. hours saved per week, faster onboarding</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PROBLEM + APPROACH -->
+<section class="sec">
+  <div class="wrap">
+    <p class="sec-tag">(01) The situation</p>
+    <div class="two">
+      <div class="col">
+        <div class="col-label">The problem</div>
+        <p>Big Bang is a licensed immigration consultancy handling real clients, real deadlines, and <b>some of the most sensitive personal data a business can hold</b>: passports, financial records, family histories.</p>
+        <p>But the practice ran on a patchwork. Intake lived on paper and in spreadsheets. Appointments were arranged across email threads. The true status of any given case lived mostly in the consultant's memory.</p>
+        <p>That works until it doesn't. It does not scale, it is fragile when someone is away, and for a regulated firm it carries real compliance risk every single day.</p>
+      </div>
+      <div class="col">
+        <div class="col-label">Our approach</div>
+        <p>We did not buy a generic CRM and bend the firm around it. <b>We designed and built a custom platform around how the practice actually works.</b></p>
+        <p>Because immigration files are regulated, compliance was not a feature bolted on at the end. It was the first requirement, shaping every table, every permission, and where every byte of data lives.</p>
+        <p>We opened with the same discipline we bring to every engagement: map the real workflow, find the highest-risk friction, and ship in priority order rather than all at once.</p>
+      </div>
+    </div>
+    <div class="shot fade">
+      <span class="ph"><b>DROP IMAGE</b><br>Big Bang CRM dashboard, client names blurred</span>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT WE BUILT -->
+<section class="sec">
+  <div class="wrap">
+    <p class="sec-tag">(02) What we built</p>
+    <h2 class="h-block rv">A practice that ran on paper now runs on <span class="serif">one platform.</span></h2>
+    <div class="build">
+      <div class="build-row fade"><span class="bn">01</span><div><h4>Digital client intake</h4><p>Structured intake that captures everything a file needs once, cleanly, instead of scattered forms and re-keyed data.</p></div></div>
+      <div class="build-row fade"><span class="bn">02</span><div><h4>Case tracking with full history</h4><p>Every case has a single source of truth: status, documents, and timeline visible to the whole practice, not locked in one person's head.</p></div></div>
+      <div class="build-row fade"><span class="bn">03</span><div><h4>A real booking calendar</h4><p>Weekly availability that clients book against directly, removing the email back-and-forth that used to schedule every appointment.</p></div></div>
+      <div class="build-row fade"><span class="bn">04</span><div><h4>Auto-generated Teams meetings</h4><p>Microsoft Teams links create themselves the moment an appointment is booked. Zero manual steps, zero copy-paste, zero missed links.</p></div></div>
+      <div class="build-row fade"><span class="bn">05</span><div><h4>Compliance, built in</h4><p>Row-level security on every table and all data hosted in a Canadian region, aligned to PIPEDA and CICC obligations from day one.</p></div></div>
+    </div>
+    <div class="chips fade" style="margin-top:36px;">
+      <span>Next.js</span><span>Supabase</span><span>Microsoft Graph</span><span>Row-level security</span><span>Canadian hosting</span><span>Security audit</span>
+    </div>
+  </div>
+</section>
+
+<!-- PULL / RESULT -->
+<section class="sec">
+  <div class="narrow">
+    <p class="sec-tag">(03) The result</p>
+    <p class="pull fade">The metric we care about most is the simplest one: they actually use it. Every day.</p>
+    <div class="prose">
+      <p>Internal tools have a way of dying in a drawer. Staff nod politely, then quietly go back to the spreadsheet. <b>The real test of a build like this is not launch day, it is week twelve.</b></p>
+      <p>Big Bang's platform passed that test. It became the daily operating system of the practice: intake, cases, bookings, and meetings all running through one place instead of four. The consultant's memory is no longer the database.</p>
+      <p>For a regulated firm, that is not just convenience. It is a defensible, auditable way of handling sensitive data that the old patchwork could never offer.</p>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE SLOT -->
+<section class="quote-sec">
+  <div class="narrow">
+    <blockquote class="big-quote fade">&ldquo;<span class="acc">[Client quote slot.]</span> One or two lines from the firm on what changed day to day.&rdquo;</blockquote>
+    <div class="q-attr fade">Name, role / Big Bang Immigration Consulting</div>
+    <div class="q-note fade">// Ask the firm for one sentence: what is easier now than before? Approve before publishing.</div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta" id="contact">
+  <div class="wrap">
+    <p class="eyebrow fade">Your turn</p>
+    <h2 class="cta-head rv">Built on paper?<br>Let's fix <span class="serif">that.</span></h2>
+    <a class="cta-mail" href="mailto:info@genzdatasolutions.com"><span class="mag"><span class="ul">info@genzdatasolutions.com</span></span></a>
+    <div class="cta-foot">
+      <div class="cities">
+        <span>Toronto<span class="t">CA</span></span>
+        <span>Dubai<span class="t">AE</span></span>
+        <span>Kathmandu<span class="t">NP</span></span>
+      </div>
+      <div class="colophon">genz technologies © 2026<br>Organic by design<br>Built by hand, ranked by Google</div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const io = new IntersectionObserver((es)=>{
+    es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('on'); io.unobserve(e.target);
+      e.target.addEventListener('transitionend',()=>{e.target.style.willChange='auto';},{once:true}); } });
+  },{threshold:.18});
+  document.querySelectorAll('.rv,.fade').forEach(el=>io.observe(el));
+
+  const fmt = n => n.toLocaleString('en-US');
+  const runCnt = (el)=>{
+    const to = parseInt(el.dataset.to,10);
+    if(reduced || to===0){ el.textContent = fmt(to); return; }
+    const dur = 1700; const start = performance.now();
+    const tick = (now)=>{ const p=Math.min((now-start)/dur,1); const e=1-Math.pow(1-p,4); el.textContent=fmt(Math.round(to*e)); if(p<1) requestAnimationFrame(tick); };
+    requestAnimationFrame(tick);
+  };
+  const cio = new IntersectionObserver((es)=>{ es.forEach(e=>{ if(e.isIntersecting){ runCnt(e.target); cio.unobserve(e.target);} }); },{threshold:.6});
+  document.querySelectorAll('.cnt').forEach(c=>cio.observe(c));
+
+  if(!reduced && matchMedia('(pointer:fine)').matches){
+    document.querySelectorAll('.mag').forEach(el=>{
+      const strength=22; let raf=null,tx=0,ty=0;
+      const apply=()=>{ el.style.transform=`translate3d(${tx}px,${ty}px,0)`; raf=null; };
+      el.addEventListener('mousemove',e=>{ const r=el.getBoundingClientRect(); tx=((e.clientX-r.left-r.width/2)/(r.width/2))*strength; ty=((e.clientY-r.top-r.height/2)/(r.height/2))*strength; if(!raf) raf=requestAnimationFrame(apply); });
+      el.addEventListener('mouseleave',()=>{ if(raf){cancelAnimationFrame(raf);raf=null;} el.style.transition='transform .5s cubic-bezier(.16,1,.3,1)'; el.style.transform='translate3d(0,0,0)'; setTimeout(()=>el.style.transition='',500); });
+      el.addEventListener('mouseenter',()=>{ el.style.transition=''; });
+    });
+  }
+</script>
+
+</body>
+</html>
