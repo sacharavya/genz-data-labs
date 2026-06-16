@@ -156,7 +156,7 @@ export default async function CaseStudyPage({
         <section className="border-b border-line py-[clamp(70px,10vw,150px)]">
           <div className="wrap">
             <p className={SEC_TAG}>(00) To finish this page</p>
-            <div className="border border-dashed border-line-2 bg-[rgba(98,213,166,0.02)] p-[clamp(24px,3vw,40px)]">
+            <div className="border border-dashed border-line-2 bg-[rgba(216,255,62,0.02)] p-[clamp(24px,3vw,40px)]">
               {cs.todoSlot.title && (
                 <div className="mb-3.5 font-mono text-[11px] uppercase tracking-[0.08em] text-acc">
                   {cs.todoSlot.title}
@@ -310,7 +310,7 @@ export default async function CaseStudyPage({
               </div>
             )}
             {cs.resultSlot && (
-              <div className="mt-[clamp(30px,4vw,56px)] border border-dashed border-line-2 bg-[rgba(98,213,166,0.02)] p-[clamp(24px,3vw,40px)]">
+              <div className="mt-[clamp(30px,4vw,56px)] border border-dashed border-line-2 bg-[rgba(216,255,62,0.02)] p-[clamp(24px,3vw,40px)]">
                 <div className="mb-3.5 font-mono text-[11px] uppercase tracking-[0.08em] text-acc">
                   &#9873; Outcome slot
                 </div>

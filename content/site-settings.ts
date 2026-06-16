@@ -21,37 +21,55 @@ export const siteSettings: SiteSettings = {
   ],
   pricingCurrency: "USD",
   pricingNote:
-    "Estimated monthly retainer in USD, up to 1200/mo for the full stack. Final scope and price are confirmed after a free audit.",
+    "Minimum retainer period: 6 months · All figures in US dollars",
   pricing: [
     {
-      name: "SEO & Local Search",
-      description: "GBP optimization, technical SEO, and local content from scored audits.",
+      name: "Google Business Profile management",
+      description: "Weekly posts, fresh photos, review pipeline, full optimization",
+      monthlyPrice: 200,
+      defaultOn: true,
+    },
+    {
+      name: "Local SEO upkeep",
+      description: "On-page work, listing and directory consistency, ranking maintenance",
+      monthlyPrice: 150,
+      defaultOn: true,
+    },
+    {
+      name: "Content strategy",
+      description: "Editorial direction plus 2 SEO-optimized blog posts per month that capture people researching before they book",
+      monthlyPrice: 200,
+      defaultOn: true,
+    },
+    {
+      name: "Social media management",
+      description: "Every platform, not just the usual three. We find where your audience actually hangs out and build there: strategy, filming guidance, captions, scheduling, posting",
       monthlyPrice: 400,
       defaultOn: true,
     },
     {
-      name: "Social & Content",
-      description: "Platform strategy and the content system behind organic audience growth.",
+      name: "Video editing",
+      description: "Up to 8 finished short vertical videos per month",
+      monthlyPrice: 350,
+      defaultOn: true,
+    },
+    {
+      name: "Graphic design",
+      description: "Social posts, promos, in-store QR review cards, brand assets",
+      monthlyPrice: 125,
+      defaultOn: true,
+    },
+    {
+      name: "Monthly reporting",
+      description: "Plain-language report on reviews, rankings, growth, and bookings",
+      monthlyPrice: 75,
+      defaultOn: true,
+    },
+    {
+      name: "Paid ads management",
+      description: "Optional, and off by default: we prioritize organic growth over ads. Added only once your base is strong. Ad spend is paid by you, directly to the platforms, never hidden in our invoice",
       monthlyPrice: 300,
-      defaultOn: true,
-    },
-    {
-      name: "Video & Creative",
-      description: "Short-form video and brand assets produced in-house, iterated on performance.",
-      monthlyPrice: 200,
       defaultOn: false,
-    },
-    {
-      name: "Web & Software",
-      description: "Sites, CRMs, and booking systems built to rank and convert.",
-      monthlyPrice: 200,
-      defaultOn: false,
-    },
-    {
-      name: "Analytics & Reporting",
-      description: "A scored baseline and plain-language reporting every month.",
-      monthlyPrice: 100,
-      defaultOn: true,
     },
   ],
 };

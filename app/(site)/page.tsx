@@ -34,11 +34,7 @@ export default async function Home() {
         <Cases caseStudies={caseStudies} />
         <Services />
         {settings.pricing && settings.pricing.length > 0 && (
-          <Pricing
-            items={settings.pricing}
-            currency={settings.pricingCurrency}
-            note={settings.pricingNote}
-          />
+          <Pricing items={settings.pricing} note={settings.pricingNote} />
         )}
         <Stats stats={settings.statsBand ?? []} />
         <Contact email={settings.contactEmail} cities={settings.cities} />
