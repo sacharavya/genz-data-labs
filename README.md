@@ -50,6 +50,7 @@ full list.
 | `NEXT_PUBLIC_SANITY_DATASET` | for CMS | Usually `production`. |
 | `NEXT_PUBLIC_SANITY_API_VERSION` | optional | Defaults to `2024-10-01`. |
 | `SANITY_API_WRITE_TOKEN` | for seeding | Server only. Never commit. |
+| `SANITY_API_READ_TOKEN` | recommended | Server only. A Viewer token makes reads reliable regardless of public-CDN propagation. Set locally and on Vercel. |
 
 Without `NEXT_PUBLIC_SANITY_PROJECT_ID`, the site serves the local seed content
 (`content/`). With it set, the site reads from Sanity (run `npm run seed` first,
